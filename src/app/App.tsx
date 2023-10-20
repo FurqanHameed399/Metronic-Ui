@@ -15,9 +15,7 @@ const App: React.FC<Props> = ({basename}) => {
       <BrowserRouter basename={basename}>
         <I18nProvider>
           <LayoutProvider>
-            <AuthInit>
-              <Routes />
-            </AuthInit>
+            <Routes /> {/* Remove <AuthInit> and directly render <Routes> */}
           </LayoutProvider>
         </I18nProvider>
       </BrowserRouter>

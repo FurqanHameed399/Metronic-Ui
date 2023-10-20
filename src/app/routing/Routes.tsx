@@ -17,32 +17,16 @@ import {MasterInit} from '../../_metronic/layout/MasterInit'
 
 
 const Routes: FC = () => {
-  const isAuthorized = useSelector<RootState>(({auth}) => auth.user, shallowEqual)
+  // const isAuthorized = useSelector<RootState>(({auth}) => auth.user, shallowEqual)
 
   return (
     <>
       <Switch>
-        {!isAuthorized ? (
-          /*Render auth page when user at `/auth` and not authorized.*/
-          <Route>
-            <AuthPage />
-          </Route>
-        ) : (
-          /*Otherwise redirect to root page (`/`)*/
-          <Redirect from='/auth' to='/' />
-        )}
-
-        <Route path='/error' component={ErrorsPage} />
-        <Route path='/logout' component={Logout} />
-
-        {!isAuthorized ? (
-          /*Redirect to `/auth` when user is not authorized*/
-          <Redirect to='/auth/login' />
-        ) : (
-          <MasterLayout>
-            <PrivateRoutes />
-          </MasterLayout>
-        )}
+      {/* <Route path='/error' component={ErrorsPage} />
+      <Route path='/logout' component={Logout} /> */}
+      <MasterLayout>
+        <PrivateRoutes /> {/* Add PrivateRoutes here if needed */}
+      </MasterLayout>
       </Switch>
       <MasterInit />
     </>

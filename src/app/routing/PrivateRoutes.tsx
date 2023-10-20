@@ -11,12 +11,15 @@ export function PrivateRoutes() {
   const AccountPage = lazy(() => import('../modules/accounts/AccountPage'))
   const WidgetsPage = lazy(() => import('../modules/widgets/WidgetsPage'))
   const ChatPage = lazy(() => import('../modules/apps/chat/ChatPage'))
+  const MyPage = lazy(() => import('../modules/MyPage/Mypage'))
+
 
   return (
     <Suspense fallback={<FallbackView />}>
       <Switch>
         <Route path='/dashboard' component={DashboardWrapper} />
         <Route path='/builder' component={BuilderPageWrapper} />
+        <Route path='/MyPage' component={MyPage} />
         <Route path='/crafted/pages/profile' component={ProfilePage} />
         <Route path='/crafted/pages/wizards' component={WizardsPage} />
         <Route path='/crafted/widgets' component={WidgetsPage} />
